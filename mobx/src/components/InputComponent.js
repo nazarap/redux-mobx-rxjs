@@ -2,6 +2,7 @@ import React from 'react'
 import { observer, inject } from 'mobx-react'
 import { observable, action } from 'mobx'
 
+@inject((stores) => ({ temperature: stores.temperature }))
 @observer
 class TemperatureInput extends React.Component {
   @observable input = ''
@@ -34,20 +35,4 @@ class TemperatureInput extends React.Component {
   }
 }
 
-@inject((stores) => ({ temperature: stores.temperature }))
-@observer
-class App extends React.Component {
-  render () {
-    const { temperature } = this.props
-    return (
-      <div>
-        <TemperatureInput temperature={temperature}/>
-        <h2>
-          {`${temperature.location} ${temperature.loading ? 'loading..' : temperature.message}`}
-        </h2>
-      </div>
-    )
-  }
-}
-
-export default App
+export default TemperatureInput

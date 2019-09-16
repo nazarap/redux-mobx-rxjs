@@ -11,6 +11,7 @@ axios.interceptors.response.use(
 
 ReactDOM.render(
   <React.Fragment>
+    <h1>Rxjs example</h1>
     <InputComponent />
     <ViewComponent />
   </React.Fragment>,
